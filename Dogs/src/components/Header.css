@@ -1,0 +1,34 @@
+.header{
+  box-shadow: 4px 0 4px 1px  rgba(0, 0, 0, 0.3);
+}
+
+.container-header{
+  padding: 1.5rem 2.8rem;
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnLogin{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: .6rem;
+}
+
+.btnLogin a{
+  text-decoration: none;
+  color: #333;
+}
+
+.btnLogin::after{
+  content: "";
+  display: block;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 20px;
+  background-image: url(../assets/usuario.svg);
+}

@@ -1,0 +1,46 @@
+.formulario{
+  padding: 1rem 2rem 1rem 0;
+}
+
+.formulario  div{
+  margin: 2rem 0;
+}
+
+.perdeu-a-senha{
+  margin: 3rem 0 4rem 0;
+}
+
+.perdeu-a-senha p{
+  color: #666;
+}
+
+.perdeu-a-senha .detalhe{
+  width: 120px;
+  height: 2px;
+  background-color:#666;
+  display: block;
+}
+
+.titulo-cadastro::after{
+  content: "";
+  width: 35px;
+  height: 10px;
+  border-radius: 15px;
+  background-color: #DDDDDD;
+  display: block;
+}
+
+.conteudo-cadastro{
+  margin: 2rem 0;
+}
+
+
+.conteudo-cadastro p{
+  margin-bottom: 2rem;
+}
+
+.perdeu-a-senha a{
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #666;
+}

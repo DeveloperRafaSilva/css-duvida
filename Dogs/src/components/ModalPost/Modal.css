@@ -1,0 +1,103 @@
+.feed-modal{
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  left: 0;
+  grid-template-columns: 500px 300px;
+  align-self: center;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  top: 0;
+  position: fixed;
+  padding: 3rem;
+}
+
+@media(max-width:800px){
+  .feed-modal{
+    grid-template-columns: auto auto;
+  }
+}
+
+@media(max-width:600px){
+  .feed-modal{
+    grid-template-columns: 400px;
+  }
+  .comentarios{
+    display: none;
+  }
+  
+  .foto-dogs img{
+    border-radius: 10px 10px 0 0 !important;
+  }
+
+  .conteudo-modal{
+    border-radius: 0 0 10px 10px !important;
+  }
+}
+
+@media(max-width:400px){
+  .feed-modal{
+    grid-template-columns: 350px;
+  }
+
+}
+
+.foto-dogs img{
+  border-radius: 10px 0 0 10px;
+  width: 600px !important;
+  max-width: 100%;
+}
+
+.conteudo-modal{
+  padding: 2rem;
+  border-radius: 0 10px 10px 0px;
+  background-color: #fff;
+}
+
+.author{
+  font-size: 1.2rem ;
+  color: #ccc;
+}
+
+.header-modal{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.acessos-modal{
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.2rem;
+}
+
+.acessos-modal::before{
+  content: "";
+  background: url(../../assets/visualizacao-black.svg) center center no-repeat;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.infos-dog h1{
+  margin-top: 2rem;
+  font-size: 2.8rem;
+}
+
+.dogs-infos-item{
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.dogs-infos-item p{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.comentarios{
+  margin-top: 3rem;
+}

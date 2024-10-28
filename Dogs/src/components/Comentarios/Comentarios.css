@@ -1,0 +1,10 @@
+.comentario-item{
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+}
+
+.autor-comentario{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
