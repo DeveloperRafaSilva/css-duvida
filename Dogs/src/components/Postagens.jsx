@@ -2,32 +2,26 @@ import React from 'react';
 import './Postagens.css';
 import UseFecth from '../UseFecth';
 import Modal from './ModalPost/Modal';
+import Imagem from './Imagem/Imagem';
+import Loading from './Loading/Loading';
 const Postagens = () => {
   const { dados, loading, error, request } = UseFecth();
-  const [post, setPost] = React.useState(null);
+  const [dados2, setDados] = React.useState(null);
+  const [modal, setModal] = React.useState(false);
 
   React.useEffect(() => {
     request('https://dogsapi.origamid.dev/json/api/photo');
   }, [request]);
 
-  const [modal, setModal] = React.useState(false);
   function handleClick(post) {
-    setPost(post);
+    setDados(post);
+    setModal(true);
   }
 
-  function handleClikc(event) {
-    if (event.target === event.currentTarget) {
-      setModal(false);
-      document.body.style.background = 'initial';
-    } else {
-      document.body.style.background = '#333';
-      setModal(true);
-    }
-  }
-
+  if (loading) return <Loading />;
   if (dados === null) return null;
   return (
-    <div onClick={handleClikc} className="div-pai">
+    <div className="div-pai">
       <div className="postagens-dogs">
         {dados.map((dogs) => (
           <div
@@ -36,12 +30,12 @@ const Postagens = () => {
             className="item-dogs"
           >
             <div className="divv-post">
-              <img src={dogs.src} title={dogs.title} />
+              <Imagem src={dogs.src} title={dogs.title} />
               <span className="acessos">{dogs.acessos}</span>
             </div>
           </div>
         ))}
-        {modal && <Modal post={post} modal={modal} setModal={setModal} />}
+        {modal && <Modal dados={dados2} modal={modal} setModal={setModal} />}
       </div>
     </div>
   );

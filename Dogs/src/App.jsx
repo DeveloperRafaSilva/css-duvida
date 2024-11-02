@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import FormConta from './components/FormConta';
 import Login from './components/Login';
@@ -11,8 +11,18 @@ import Postar from './components/Conta/Postar';
 import CriarConta from './components/CriarConta';
 import RecuperacaodeConta from './components/RecuperacaodeConta';
 import MenuConta from './components/Conta/MenuConta';
-import { GlobalStorage } from './GlobalContext';
+import { GlobalContext, GlobalStorage } from './GlobalContext';
+import PerfilUsuario from './components/PerfilUsuario/PerfilUsuario';
+import FotoItem from './components/FotoItem/FotoItem';
 const App = () => {
+  const global = React.useContext(GlobalContext);
+  console.log(global);
+
+  if (global && global.logado) {
+    const navigate = useNavigate();
+    navigate('/conta/conta');
+  }
+
   return (
     <div>
       <BrowserRouter>
@@ -30,6 +40,8 @@ const App = () => {
               <Route path="estatisticas" element={<Estatisticas />} />
               <Route path="postar" element={<Postar />} />
             </Route>
+            <Route path="perfil/:usuario" element={<PerfilUsuario />} />
+            <Route path="foto/:foto" element={<FotoItem />} />
           </Routes>
         </GlobalStorage>
       </BrowserRouter>

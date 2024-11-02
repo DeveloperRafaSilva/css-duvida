@@ -10,7 +10,6 @@ const Login = () => {
   const [email, setEmail] = React.useState('');
   const [senha, setSenha] = React.useState('');
   const { dados, error, loading, request } = useFetch();
-  const navigate = useNavigate();
   const global = React.useContext(GlobalContext);
 
   function teste(event) {

@@ -1,0 +1,7 @@
+.deletar{
+  padding: .5rem .8rem;
+  border: none;
+  cursor: pointer;
+  background-color: #ccc7;
+  border-radius: 10px;
+}

@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { GlobalContext } from '../GlobalContext';
 const Header = () => {
   const global = React.useContext(GlobalContext);
-  // console.log(global.usuario);
+  console.log(global);
   return (
     <header className="header">
       <div className="container-header">
@@ -14,8 +14,10 @@ const Header = () => {
           </div>
         </Link>
         <div className="btnLogin">
-          {global.logado ? (
-            <p>{global.usuario}</p>
+          {global && global.logado ? (
+            <NavLink to="conta/conta">
+              <p>{global.usuario}</p>
+            </NavLink>
           ) : (
             <NavLink to="formulario/login">
               <h3>Login / Criar</h3>

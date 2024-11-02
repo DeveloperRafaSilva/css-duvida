@@ -1,12 +1,27 @@
 .conta-home{
   max-width: 800px;
   margin: 2rem auto;
-  display: flex;
-  align-items: center;
+  display:grid;
+  grid-template-columns: auto auto;
   padding: 2rem 3rem;
   justify-content: space-between;
 }
 
-.conta-home nav a {
-  margin-left: 1.5rem;
+
+a{
+  display: block !important;
+}
+
+
+.navegacao   {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navegacao a{
+  border-radius: 4px;
+  background-color: #ccc5;
+  padding: .4rem .8rem;
+  border: 1px solid #ccc;
 }

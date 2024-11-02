@@ -8,3 +8,37 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.comentario{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.comentario-post{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin: 1rem 0;
+  justify-content: space-between;
+}
+
+.comentario-post input{
+  padding: .9rem .9rem;
+  background-color: #ccc;
+  outline: none;
+  border: none;
+  max-width: 100%;
+  width: 300px;
+}
+
+@media(max-width:420px){
+  .comentario input{
+    width: 190px;
+  }
+
+  .comentario-post{
+    width: fit-content;
+  }
+}

@@ -1,103 +1,114 @@
-.feed-modal{
+.container-modal{
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0 ;
+  right: 0px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media(max-width:930px){
+ .post-conteudo {
+  grid-template-columns: auto !important;
+ }
+ .conteudo-post-main{
+  width: 476px !important;
+  height: fit-content;
+ }
+
+ .post-conteudo{
+  overflow-y: scroll;
+  height: 500px;
+ }
+}
+
+.imagem-img img{
+  max-width: 500px;
+  border-radius: 0px;
+}
+
+.post-conteudo{
   max-width: 600px;
   margin: 0 auto;
   display: grid;
-  left: 0;
-  grid-template-columns: 500px 300px;
-  align-self: center;
-  right: 0;
-  bottom: 0;
-  justify-content: center;
-  top: 0;
-  position: fixed;
-  padding: 3rem;
+  grid-template-columns: auto auto;
 }
 
-@media(max-width:800px){
-  .feed-modal{
-    grid-template-columns: auto auto;
-  }
-}
-
-@media(max-width:600px){
-  .feed-modal{
-    grid-template-columns: 400px;
-  }
-  .comentarios{
-    display: none;
-  }
-  
-  .foto-dogs img{
-    border-radius: 10px 10px 0 0 !important;
-  }
-
-  .conteudo-modal{
-    border-radius: 0 0 10px 10px !important;
-  }
-}
-
-@media(max-width:400px){
-  .feed-modal{
-    grid-template-columns: 350px;
-  }
-
-}
-
-.foto-dogs img{
-  border-radius: 10px 0 0 10px;
-  width: 600px !important;
-  max-width: 100%;
-}
-
-.conteudo-modal{
-  padding: 2rem;
-  border-radius: 0 10px 10px 0px;
+.conteudo-post-main{
   background-color: #fff;
+  padding: 0 1rem 1rem 1rem;
+  max-width: 100%;
+  width: 250px;
 }
 
-.author{
-  font-size: 1.2rem ;
-  color: #ccc;
+.conteudo-dogs h1{
+  margin: 1.5rem 0;
+  font-size: 2.6rem !important;
 }
 
-.header-modal{
+.infos-dog{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.header-post{
   display: flex;
   align-items: center;
+  margin-top: 1rem;
   justify-content: space-between;
 }
-.acessos-modal{
+
+.header-post span::before{
+  content: url(../../assets/visualizacao-black.svg);
+  margin-right: 1rem;
+}
+
+.conteudo-dogs a{
+
+  text-decoration: none;
+}
+
+.conteudo-dogs h1{
+  color:#000;
+}
+
+.header-post p{
+  font-size: 1.5rem;
   color: #ccc;
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.acessos-modal::before{
-  content: "";
-  background: url(../../assets/visualizacao-black.svg) center center no-repeat;
-  width: 20px;
-  height: 20px;
-  display: block;
+.header-post a{
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.infos-dog h1{
-  margin-top: 2rem;
-  font-size: 2.8rem;
+@media(max-width:430px){
+.imagem img{
+  width: 300px !important;
 }
 
-.dogs-infos-item{
-  display: flex;
-  align-items: center;
-  margin-top: 3rem;
-  gap: 1rem;
+}
+@media(max-width:430px){
+.post-conteudo{
+  max-width: 400px;
 }
 
-.dogs-infos-item p{
-  font-size: 1.2rem;
-  font-weight: bold;
+.imagem img{
+  width: 200px;
 }
 
-.comentarios{
-  margin-top: 3rem;
+.conteudo-post-main{
+  width: 275px !important;
 }
+ }

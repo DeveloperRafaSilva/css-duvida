@@ -1,9 +1,32 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 export const GlobalContext = React.createContext();
 
 export const GlobalStorage = ({ children }) => {
   const [usuario, setUsuario] = React.useState(null);
   const [logado, setLogado] = React.useState(false);
+  const [id, setId] = React.useState(null);
+  const navigate = useNavigate();
+
+  async function userPostar(username, password, email) {
+    const response = await fetch('https://dogsapi.origamid.dev/json/api/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        email: email,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
+    window.localStorage.setItem('token', json.token);
+    validarToken();
+    userLogin(username, password);
+    navigate('/conta/conta');
+  }
 
   async function userLogin(username, password) {
     const response = await fetch(
@@ -23,6 +46,7 @@ export const GlobalStorage = ({ children }) => {
     console.log(json);
     window.localStorage.setItem('token', json.token);
     validarToken();
+    navigate('/conta/conta');
   }
 
   async function validarToken() {
@@ -37,22 +61,28 @@ export const GlobalStorage = ({ children }) => {
       },
     );
     const json = await response.json();
-    console.log(json);
+    if (json.token === true) {
+      setLogado(true);
+    }
   }
 
   React.useEffect(() => {
     async function autoLogin() {
       if (window.localStorage.getItem('token')) {
         fetch('https://dogsapi.origamid.dev/json/api/user', {
-          method: 'POST',
+          method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
             Authorization: 'Bearer ' + window.localStorage.getItem('token'),
           },
         })
           .then((response) => response.json())
           .then((dados) => {
             console.log('auto', dados);
+            if (dados.nome) {
+              setLogado(true);
+            }
+            setUsuario(dados.nome);
+            setId(dados.id);
           });
       }
     }
@@ -60,7 +90,7 @@ export const GlobalStorage = ({ children }) => {
   }, []);
   return (
     <GlobalContext.Provider
-      value={{ userLogin, usuario, logado, validarToken }}
+      value={{ userLogin, usuario, logado, validarToken, userPostar, id }}
     >
       {children}
     </GlobalContext.Provider>

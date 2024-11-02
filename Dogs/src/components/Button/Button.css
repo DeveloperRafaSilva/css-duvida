@@ -4,5 +4,6 @@
   border-radius: 10px;
   outline: none;
   cursor: pointer;
+  display: block;
   border: none;
 }
